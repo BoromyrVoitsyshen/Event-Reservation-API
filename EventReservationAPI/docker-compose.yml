@@ -1,0 +1,28 @@
+﻿services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server_db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=SuperStrongPassword123! # Пароль має бути складним
+    ports:
+      - "1433:1433" # Прокидаємо порт для підключення через SSMS
+    volumes:
+      - sql_data:/var/opt/mssql # Зберігаємо дані між перезапусками контейнера
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile # Вказуємо шлях до твого Dockerfile
+    container_name: event_reservation_api
+    ports:
+      - "8080:8080" # Стандартний порт для .NET 8/9/10 у контейнері
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # Передаємо рядок підключення. Замість localhost вказуємо ім'я сервісу бази: Server=db
+      - ConnectionStrings__DefaultConnection=Server=db;Database=EventReservationDb;User Id=sa;Password=SuperStrongPassword123!;TrustServerCertificate=True;
+    depends_on:
+      - db # API стартує після бази даних
+
+volumes:
+  sql_data:
