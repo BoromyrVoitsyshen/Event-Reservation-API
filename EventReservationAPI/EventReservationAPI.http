@@ -1,6 +1,40 @@
-@EventReservationAPI_HostAddress = http://localhost:5125
+@EventReservationAPI_HostAddress = http://localhost:8080
 
-GET {{EventReservationAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+GET {{EventReservationAPI_HostAddress}}/events
+
+###
+
+POST {{EventReservationAPI_HostAddress}}/events
+Content-Type: application/json
+
+{
+  "name": "Концерт рок-гурту",
+  "description": "Перший тестовий концерт у базі",
+  "location": "Київ",
+  "startsAt": "2026-08-15T19:00:00Z",
+  "capacity": 5000
+}
+
+###
+
+@id=3
+DELETE {{EventReservationAPI_HostAddress}}/events/{{id}}
+
+###
+
+GET {{EventReservationAPI_HostAddress}}/events/{{id}}
+
+###
+
+PUT {{EventReservationAPI_HostAddress}}/events/{{id}}
+Content-Type: application/json
+
+{
+  "name": "Концерт іншого рок-гурту",
+  "description": "Другий тестовий концерт у базі",
+  "location": "Київ",
+  "startsAt": "2027-08-15T19:00:00Z",
+  "capacity": 500
+}
 
 ###
