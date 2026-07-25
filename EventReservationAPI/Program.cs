@@ -1,11 +1,15 @@
 using EventReservationAPI.Data;
 using EventReservationAPI.Entities;
+using EventReservationAPI.Infrastructure;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 var connectionString =
     builder.Configuration.GetConnectionString("DefaultConnection")
@@ -28,7 +32,7 @@ using (var scope = app.Services.CreateScope())
         {
             context.Database.Migrate();
             Console.WriteLine("Міграції успішно застосовано!");
-            break; 
+            break;
         }
         catch (Exception ex)
         {
@@ -41,42 +45,75 @@ using (var scope = app.Services.CreateScope())
         }
     }
 }
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
-app.MapPost("/events", async (Event newEvent, AppDbContext dbContext) =>
-{
-    newEvent.CreatedAt = DateTime.UtcNow;
+app.UseExceptionHandler();
 
-    dbContext.Events.Add(newEvent);
+
+app.MapPost("/events", async (
+    InputEventDto dto,
+    IValidator<InputEventDto> validator,
+    AppDbContext dbContext) =>
+{
+    var validationResult = await validator.ValidateAsync(dto);
+
+    if (!validationResult.IsValid)
+    {
+        return Results.ValidationProblem(validationResult.ToDictionary());
+    }
+
+    var createdEvent = new Event
+    {
+        Name = dto.Name,
+        Description = dto.Description,
+        Location = dto.Location,
+        StartsAt = dto.StartsAt,
+        Capacity = dto.Capacity,
+        CreatedAt = DateTime.UtcNow
+    };
+
+    dbContext.Events.Add(createdEvent);
     await dbContext.SaveChangesAsync();
 
-    return Results.Created($"/events/{newEvent.Id}", newEvent);
+    return Results.Created($"/events/{createdEvent.Id}", createdEvent);
 });
 
 app.MapGet("/events/{id}", async (int id, AppDbContext dbContext) =>
-    await dbContext.Events.FindAsync(id)
-        is Event existingEvent
+    await dbContext.Events.FindAsync(id) is Event existingEvent
             ? Results.Ok(existingEvent)
             : Results.NotFound());
 
-app.MapPut("/events/{id}", async (int id, Event inputEvent, AppDbContext dbContext) =>
+app.MapPut("/events/{id}", async (
+    int id,
+    InputEventDto dto,
+    IValidator<InputEventDto> validator,
+    AppDbContext dbContext) =>
 {
-    var existingEvent = await dbContext.Events.FindAsync(id);
+    var validationResult = await validator.ValidateAsync(dto);
 
-    if (existingEvent is null) return Results.NotFound();
+    if (!validationResult.IsValid)
+    {
+        return Results.ValidationProblem(validationResult.ToDictionary());
+    }
 
-    existingEvent.Name = inputEvent.Name;
-    existingEvent.Description = inputEvent.Description;
-    existingEvent.Location = inputEvent.Location;
-    existingEvent.StartsAt = inputEvent.StartsAt;
-    existingEvent.Capacity = inputEvent.Capacity;
+    if (await dbContext.Events.FindAsync(id) is Event existingEvent)
+    {
+        existingEvent.Name = dto.Name;
+        existingEvent.Description = dto.Description;
+        existingEvent.Location = dto.Location;
+        existingEvent.StartsAt = dto.StartsAt;
+        existingEvent.Capacity = dto.Capacity;
 
-    await dbContext.SaveChangesAsync();
+        await dbContext.SaveChangesAsync();
 
-    return Results.NoContent();
+        return Results.Ok(existingEvent);
+    }
+
+    return Results.NotFound();
 });
 
 app.MapDelete("/events/{id}", async (int id, AppDbContext dbContext) =>
