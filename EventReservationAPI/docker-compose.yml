@@ -4,11 +4,16 @@
     container_name: sql_server_db
     environment:
       - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=SuperStrongPassword123! # замінити пізніше
+      - MSSQL_SA_PASSWORD=SuperStrongPassword123!
     ports:
       - "1433:1433" 
     volumes:
       - sql_data:/var/opt/mssql 
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "SuperStrongPassword123!", "-C", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   api:
     build:
@@ -21,7 +26,8 @@
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=db;Database=EventReservationDb;User Id=sa;Password=SuperStrongPassword123!;TrustServerCertificate=True;
     depends_on:
-      - db 
+      db :
+        condition: service_healthy
 
 volumes:
   sql_data:
