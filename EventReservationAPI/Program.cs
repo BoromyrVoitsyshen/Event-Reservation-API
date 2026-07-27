@@ -61,8 +61,7 @@ app.MapPost("/events", async (
 
 app.MapGet("/events/{id}", async (
     int id,
-    IEventService eventService,
-    ILogger<Program> logger) =>
+    IEventService eventService) =>
 {
     var existingEvent = await eventService.GetEventAsync(id);
     return existingEvent is not null 
@@ -94,8 +93,7 @@ app.MapPut("/events/{id}", async (
 
 app.MapDelete("/events/{id}", async (
     int id, 
-    IEventService eventService,
-    ILogger<Program> logger) =>
+    IEventService eventService) =>
 {
     bool isDeleted = await eventService.DeleteEventAsync(id);
     return isDeleted
@@ -103,9 +101,11 @@ app.MapDelete("/events/{id}", async (
         : Results.NotFound();
 });
 
-app.MapGet("/events", async (IEventService eventService, ILogger<Program> logger) =>
+app.MapGet("/events", async (
+    [AsParameters] FilterEventDto filter,
+    IEventService eventService) =>
     {
-        var events = await eventService.GetEventsAsync();
+        var events = await eventService.GetEventsAsync(filter);
         return Results.Ok(events);
     });
 

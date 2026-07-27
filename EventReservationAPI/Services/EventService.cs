@@ -1,5 +1,6 @@
 ﻿using EventReservationAPI.Data;
 using EventReservationAPI.Entities;
+using EventReservationAPI.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventReservationAPI.Services
@@ -89,11 +90,31 @@ namespace EventReservationAPI.Services
             return false;
         }
 
-        public async Task<List<Event>> GetEventsAsync(  )
+        public async Task<List<Event>> GetEventsAsync(FilterEventDto filter)
         {
-            var events = await _dbContext.Events.ToListAsync();
-            _logger.LogInformation("All events retrieved successfully.");
-            return events;
+            var query = _dbContext.Events.AsQueryable()
+                .WhereIf(!string.IsNullOrEmpty(filter.Name), e => e.Name.Contains(filter.Name!))
+                .WhereIf(!string.IsNullOrEmpty(filter.Location), e => e.Location.Contains(filter.Location!))
+                .WhereIf(filter.DateFrom.HasValue, e => e.StartsAt >= filter.DateFrom.Value)
+                .WhereIf(filter.DateTo.HasValue, e => e.StartsAt <= filter.DateTo.Value);
+
+            if (filter.SortBy?.ToLower() == "name")
+            {
+                query = filter.SortDescending
+                    ? query.OrderByDescending(e => e.Name)
+                    : query.OrderBy(e => e.Name);
+            } else
+            {
+                query = filter.SortDescending
+                    ? query.OrderByDescending(e => e.StartsAt)
+                    : query.OrderBy(e => e.StartsAt);
+            }
+
+            query = query
+                .Skip((filter.Page - 1) * filter.PageSize)
+                .Take(filter.PageSize);
+
+            return await query.ToListAsync();
         }
     }
 }

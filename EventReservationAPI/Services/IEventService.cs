@@ -8,6 +8,6 @@ namespace EventReservationAPI.Services
         Task<Event> GetEventAsync(int id);
         Task<Event> UpdateEventAsync(int id, InputEventDto dto);
         Task<bool> DeleteEventAsync(int id);
-        Task<List<Event>> GetEventsAsync();
+        Task<List<Event>> GetEventsAsync(FilterEventDto filter);
     }
 }
