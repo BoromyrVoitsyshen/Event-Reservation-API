@@ -1,6 +1,7 @@
 using EventReservationAPI.Data;
 using EventReservationAPI.Entities;
 using EventReservationAPI.Infrastructure;
+using EventReservationAPI.Services;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddScoped<IEventService, EventService>();
 
 var connectionString =
     builder.Configuration.GetConnectionString("DefaultConnection")
@@ -41,7 +43,7 @@ app.UseExceptionHandler();
 app.MapPost("/events", async (
     InputEventDto dto,
     IValidator<InputEventDto> validator,
-    AppDbContext dbContext,
+    IEventService eventService,
     ILogger<Program> logger) =>
 {
     var validationResult = await validator.ValidateAsync(dto);
@@ -52,42 +54,27 @@ app.MapPost("/events", async (
         return Results.ValidationProblem(validationResult.ToDictionary());
     }
 
-    var createdEvent = new Event
-    {
-        Name = dto.Name,
-        Description = dto.Description,
-        Location = dto.Location,
-        StartsAt = dto.StartsAt,
-        Capacity = dto.Capacity,
-        CreatedAt = DateTime.UtcNow
-    };
+    var createdEvent = await eventService.CreateEventAsync(dto);
 
-    dbContext.Events.Add(createdEvent);
-    await dbContext.SaveChangesAsync();
-
-    logger.LogInformation("Event created successfully with ID: {EventId}", createdEvent.Id);
     return Results.Created($"/events/{createdEvent.Id}", createdEvent);
 });
 
 app.MapGet("/events/{id}", async (
     int id,
-    AppDbContext dbContext,
+    IEventService eventService,
     ILogger<Program> logger) =>
 {
-    if (await dbContext.Events.FindAsync(id) is Event existingEvent)
-    {
-        logger.LogInformation("Event retrieved successfully with ID: {EventId}", id);
-        return Results.Ok(existingEvent);
-    }
-    logger.LogWarning("Event not found with ID: {EventId}", id);
-    return Results.NotFound();
+    var existingEvent = await eventService.GetEventAsync(id);
+    return existingEvent is not null 
+        ? Results.Ok(existingEvent) 
+        : Results.NotFound();
 });
 
 app.MapPut("/events/{id}", async (
     int id,
     InputEventDto dto,
     IValidator<InputEventDto> validator,
-    AppDbContext dbContext,
+    IEventService eventService,
     ILogger<Program> logger) =>
 {
     var validationResult = await validator.ValidateAsync(dto);
@@ -98,46 +85,27 @@ app.MapPut("/events/{id}", async (
         return Results.ValidationProblem(validationResult.ToDictionary());
     }
 
-    if (await dbContext.Events.FindAsync(id) is Event existingEvent)
-    {
-        existingEvent.Name = dto.Name;
-        existingEvent.Description = dto.Description;
-        existingEvent.Location = dto.Location;
-        existingEvent.StartsAt = dto.StartsAt;
-        existingEvent.Capacity = dto.Capacity;
+    var updatedEvent = await eventService.UpdateEventAsync(id, dto);
 
-        await dbContext.SaveChangesAsync();
-
-        logger.LogInformation("Event updated successfully with ID: {EventId}", id);
-        return Results.Ok(existingEvent);
-    }
-
-    logger.LogWarning("Event not found with ID: {EventId}", id);
-    return Results.NotFound();
+    return updatedEvent is not null 
+    ? Results.Ok(updatedEvent) 
+    : Results.NotFound();
 });
 
 app.MapDelete("/events/{id}", async (
     int id, 
-    AppDbContext dbContext, 
+    IEventService eventService,
     ILogger<Program> logger) =>
 {
-    if (await dbContext.Events.FindAsync(id) is Event existingEvent)
-    {
-        dbContext.Events.Remove(existingEvent);
-        await dbContext.SaveChangesAsync();
-
-        logger.LogInformation("Event deleted successfully with ID: {EventId}", id);
-        return Results.NoContent();
-    }
-
-    logger.LogWarning("Event not found with ID: {EventId}", id);
-    return Results.NotFound();
+    bool isDeleted = await eventService.DeleteEventAsync(id);
+    return isDeleted
+        ? Results.NoContent()
+        : Results.NotFound();
 });
 
-app.MapGet("/events", async (AppDbContext dbContext, ILogger<Program> logger) =>
+app.MapGet("/events", async (IEventService eventService, ILogger<Program> logger) =>
     {
-        var events = await dbContext.Events.ToListAsync();
-        logger.LogInformation("All events retrieved successfully.");
+        var events = await eventService.GetEventsAsync();
         return Results.Ok(events);
     });
 
