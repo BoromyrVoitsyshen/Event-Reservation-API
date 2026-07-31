@@ -3,20 +3,23 @@ using EventReservationAPI.Entities;
 
 namespace EventReservationAPI.Validators
 {
-    public class InputEventDtoValidator : AbstractValidator<InputEventDto>
+    public class EventInputDtoValidator : AbstractValidator<EventInputDto>
     {
-        public InputEventDtoValidator()
+        public const int MaxNameLength = 100;
+        public const int MaxDescriptionLength = 500;
+        public const int MaxLocationLength = 200;
+        public EventInputDtoValidator()
         {
             RuleFor(x => x.Name)
                 .NotEmpty().WithMessage("Event name is required.")
-                .MaximumLength(100).WithMessage("Event name cannot exceed 100 characters.");
+                .MaximumLength(MaxNameLength).WithMessage($"Event name cannot exceed {MaxNameLength} characters.");
 
             RuleFor(x => x.Description)
-                .MaximumLength(500).WithMessage("Event description cannot exceed 500 characters.");
+                .MaximumLength(MaxDescriptionLength).WithMessage($"Event description cannot exceed {MaxDescriptionLength} characters.");
 
             RuleFor(x => x.Location)
                 .NotEmpty().WithMessage("Event location is required.")
-                .MaximumLength(200).WithMessage("Event location cannot exceed 200 characters.");
+                .MaximumLength(MaxLocationLength).WithMessage($"Event location cannot exceed {MaxLocationLength} characters.");
 
             RuleFor(x => x.StartsAt)
                 .NotEmpty().WithMessage("Event start time is required.")

@@ -1,6 +1,6 @@
 ﻿namespace EventReservationAPI.Entities
 {
-    public class FilterEventDto
+    public class EventFilterDto
     {
         public string? Name { get; set; }
         public string? Location { get; set; }

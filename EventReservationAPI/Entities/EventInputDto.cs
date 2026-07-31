@@ -1,6 +1,6 @@
 ﻿namespace EventReservationAPI.Entities
 {
-    public class InputEventDto
+    public class EventInputDto
     {
         public string Name { get; set; }
         public string Description { get; set; }

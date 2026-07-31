@@ -16,7 +16,7 @@ namespace EventReservationAPI.Services
             _logger = logger;
         }
 
-        public async Task<Event> CreateEventAsync(InputEventDto dto)
+        public async Task<Event> CreateEventAsync(EventInputDto dto)
         {
             var createdEvent = new Event
             {
@@ -50,7 +50,7 @@ namespace EventReservationAPI.Services
             return existingEvent;
         }
 
-        public async Task<Event> UpdateEventAsync(int id, InputEventDto dto)
+        public async Task<Event> UpdateEventAsync(int id, EventInputDto dto)
         {
             var updatedEvent = await _dbContext.Events.FindAsync(id);
 
@@ -90,7 +90,7 @@ namespace EventReservationAPI.Services
             return false;
         }
 
-        public async Task<List<Event>> GetEventsAsync(FilterEventDto filter)
+        public async Task<List<Event>> GetEventsAsync(EventFilterDto filter)
         {
             var query = _dbContext.Events.AsQueryable()
                 .WhereIf(!string.IsNullOrEmpty(filter.Name), e => e.Name.Contains(filter.Name!))

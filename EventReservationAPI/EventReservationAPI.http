@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-@id=2
+@id=1
 DELETE {{EventReservationAPI_HostAddress}}/events/{{id}}
 
 ###
