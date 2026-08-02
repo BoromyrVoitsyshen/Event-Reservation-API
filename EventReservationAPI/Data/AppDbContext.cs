@@ -9,6 +9,7 @@ namespace EventReservationAPI.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         public DbSet<Event> Events { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

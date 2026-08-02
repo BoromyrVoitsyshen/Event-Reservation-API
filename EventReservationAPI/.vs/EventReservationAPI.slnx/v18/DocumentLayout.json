@@ -7,16 +7,48 @@
       "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\services\\ireservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:services\\ireservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\services\\reservationcleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:services\\reservationcleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\validators\\reservationcreatedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:validators\\reservationcreatedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\entities\\reservationcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:entities\\reservationcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\validators\\eventinputdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:validators\\eventinputdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\settings\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:settings\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\entities\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:entities\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -35,40 +67,12 @@
       "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:eventreservationapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\eventreservationapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:eventreservationapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\validators\\userregisterdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:validators\\userregisterdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\services\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:services\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\validators\\eventinputdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:validators\\eventinputdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\entities\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:entities\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\entities\\eventinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:entities\\eventinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\entities\\eventfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:entities\\eventfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|c:\\users\\boris\\source\\repos\\boromyrvoitsyshen\\event-reservation-api\\eventreservationapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FD8C612-F830-E00E-59F5-F73EBAB9D19D}|EventReservationAPI.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -88,7 +92,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAkwG4AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAAAGUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-19T11:35:50.812Z",
               "IsPinned": true,
@@ -96,197 +100,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Event.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\Event.cs",
-              "RelativeDocumentMoniker": "Entities\\Event.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\Event.cs",
-              "RelativeToolTip": "Entities\\Event.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T17:53:22.975Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "Entities\\User.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\User.cs",
-              "RelativeToolTip": "Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T17:28:05.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-31T17:15:38.241Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EventReservationAPI.http",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\EventReservationAPI.http",
-              "RelativeDocumentMoniker": "EventReservationAPI.http",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\EventReservationAPI.http",
-              "RelativeToolTip": "EventReservationAPI.http",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-07-31T17:11:16.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JwtSettings.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Settings\\JwtSettings.cs",
-              "RelativeDocumentMoniker": "Settings\\JwtSettings.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Settings\\JwtSettings.cs",
-              "RelativeToolTip": "Settings\\JwtSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T17:04:33.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EventReservationAPI",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\EventReservationAPI.csproj",
-              "RelativeDocumentMoniker": "EventReservationAPI.csproj",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\EventReservationAPI.csproj",
-              "RelativeToolTip": "EventReservationAPI.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-07-31T15:07:36.13Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserLoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\UserLoginDto.cs",
-              "RelativeDocumentMoniker": "Entities\\UserLoginDto.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\UserLoginDto.cs",
-              "RelativeToolTip": "Entities\\UserLoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T13:01:09.797Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserRegisterDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\UserRegisterDtoValidator.cs",
-              "RelativeDocumentMoniker": "Validators\\UserRegisterDtoValidator.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\UserRegisterDtoValidator.cs",
-              "RelativeToolTip": "Validators\\UserRegisterDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T12:11:03.39Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "EventInputDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\EventInputDtoValidator.cs",
-              "RelativeDocumentMoniker": "Validators\\EventInputDtoValidator.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\EventInputDtoValidator.cs",
-              "RelativeToolTip": "Validators\\EventInputDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T12:10:32.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\AuthService.cs",
-              "RelativeToolTip": "Services\\AuthService.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAwwFUAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T11:43:57.858Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "EventService.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\EventService.cs",
-              "RelativeDocumentMoniker": "Services\\EventService.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\EventService.cs",
-              "RelativeToolTip": "Services\\EventService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA5wCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T11:44:37.623Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Services\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\IAuthService.cs",
-              "RelativeToolTip": "Services\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
+              "Title": "ReservationCleanupService.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\ReservationCleanupService.cs",
+              "RelativeDocumentMoniker": "Services\\ReservationCleanupService.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\ReservationCleanupService.cs",
+              "RelativeToolTip": "Services\\ReservationCleanupService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAUwEAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T11:40:19.715Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "UserRegisterDto.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\UserRegisterDto.cs",
-              "RelativeDocumentMoniker": "Entities\\UserRegisterDto.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\UserRegisterDto.cs",
-              "RelativeToolTip": "Entities\\UserRegisterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T11:27:58.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "EventInputDto.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\EventInputDto.cs",
-              "RelativeDocumentMoniker": "Entities\\EventInputDto.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\EventInputDto.cs",
-              "RelativeToolTip": "Entities\\EventInputDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T11:27:24.162Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "EventFilterDto.cs",
-              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\EventFilterDto.cs",
-              "RelativeDocumentMoniker": "Entities\\EventFilterDto.cs",
-              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\EventFilterDto.cs",
-              "RelativeToolTip": "Entities\\EventFilterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T11:27:08.764Z",
+              "WhenOpened": "2026-08-02T18:55:35.383Z",
               "EditorCaption": ""
             },
             {
@@ -299,16 +121,197 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 4,
+              "Title": "ReservationCreateDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\ReservationCreateDtoValidator.cs",
+              "RelativeDocumentMoniker": "Validators\\ReservationCreateDtoValidator.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\ReservationCreateDtoValidator.cs",
+              "RelativeToolTip": "Validators\\ReservationCreateDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-01T21:11:47.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReservationService.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\ReservationService.cs",
+              "RelativeDocumentMoniker": "Services\\ReservationService.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\ReservationService.cs",
+              "RelativeToolTip": "Services\\ReservationService.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAkwG4AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-01T20:46:02.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IReservationService.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\IReservationService.cs",
+              "RelativeDocumentMoniker": "Services\\IReservationService.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\IReservationService.cs",
+              "RelativeToolTip": "Services\\IReservationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-01T20:44:55.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReservationCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\ReservationCreateDto.cs",
+              "RelativeDocumentMoniker": "Entities\\ReservationCreateDto.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\ReservationCreateDto.cs",
+              "RelativeToolTip": "Entities\\ReservationCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-01T20:40:29.05Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-28T19:15:10.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-01T18:29:44.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\Reservation.cs",
+              "RelativeDocumentMoniker": "Entities\\Reservation.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\Reservation.cs",
+              "RelativeToolTip": "Entities\\Reservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-01T18:09:57.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\Event.cs",
+              "RelativeDocumentMoniker": "Entities\\Event.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\Event.cs",
+              "RelativeToolTip": "Entities\\Event.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T17:53:22.975Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Entities\\User.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\User.cs",
+              "RelativeToolTip": "Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T17:28:05.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-31T17:15:38.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EventReservationAPI.http",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\EventReservationAPI.http",
+              "RelativeDocumentMoniker": "EventReservationAPI.http",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\EventReservationAPI.http",
+              "RelativeToolTip": "EventReservationAPI.http",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-07-31T17:11:16.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "JwtSettings.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Settings\\JwtSettings.cs",
+              "RelativeDocumentMoniker": "Settings\\JwtSettings.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Settings\\JwtSettings.cs",
+              "RelativeToolTip": "Settings\\JwtSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T17:04:33.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EventReservationAPI.csproj",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\EventReservationAPI.csproj",
+              "RelativeDocumentMoniker": "EventReservationAPI.csproj",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\EventReservationAPI.csproj",
+              "RelativeToolTip": "EventReservationAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-07-31T15:07:36.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserLoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\UserLoginDto.cs",
+              "RelativeDocumentMoniker": "Entities\\UserLoginDto.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Entities\\UserLoginDto.cs",
+              "RelativeToolTip": "Entities\\UserLoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T13:01:09.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserRegisterDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\UserRegisterDtoValidator.cs",
+              "RelativeDocumentMoniker": "Validators\\UserRegisterDtoValidator.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\UserRegisterDtoValidator.cs",
+              "RelativeToolTip": "Validators\\UserRegisterDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T12:11:03.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EventInputDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\EventInputDtoValidator.cs",
+              "RelativeDocumentMoniker": "Validators\\EventInputDtoValidator.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Validators\\EventInputDtoValidator.cs",
+              "RelativeToolTip": "Validators\\EventInputDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T12:10:32.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\boris\\source\\repos\\BoromyrVoitsyshen\\Event-Reservation-API\\EventReservationAPI\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T11:43:57.858Z"
             }
           ]
         }

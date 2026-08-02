@@ -5,39 +5,49 @@ Run the following command in the root directory (where the `docker-compose.yml` 
 ```bash
 docker compose up --build
 ```
-This command will automatically start both the .NET API and the SQL Server database containers. 
+This command will automatically start both the .NET API and the SQL Server database containers[cite: 2]. 
 Once the containers are running, you can explore and test the endpoints via the Swagger UI available at:
-`http://localhost:8080/swagger`
+`http://localhost:8080/swagger`[cite: 2].
 
 ## Database Migrations & Startup
-Database migrations are applied automatically on application startup. To ensure the API does not fail if the database container takes time to boot, the project utilizes **Docker Healthchecks**. The API container is configured to wait (`depends_on: service_healthy`) until the SQL Server is fully initialized and ready to accept connections before starting the application and applying migrations.
+Database migrations are applied automatically on application startup[cite: 2]. To ensure the API does not fail if the database container takes time to boot, the project utilizes **Docker Healthchecks**[cite: 2]. The API container is configured to wait (`depends_on: service_healthy`) until the SQL Server is fully initialized and ready to accept connections before starting the application and applying migrations[cite: 2].
 
 ## Authentication & Testing (Challenge 2)
-The API is secured using JWT Bearer tokens. Swagger is fully configured to handle authorization.
+The API is secured using JWT Bearer tokens[cite: 2]. Swagger is fully configured to handle authorization[cite: 2].
 
-* **Test Users:** Upon application startup, a test Admin user is automatically seeded into the database, along with several test events for filtering/sorting.
+* **Test Users:** Upon application startup, a test Admin user is automatically seeded into the database, along with several test events for filtering/sorting[cite: 2].
   * **Email:** `admin@eventapi.com`
   * **Password:** `AdminSecret123!`
 * **How to obtain a token:**
-  1. Open Swagger at `http://localhost:8080/swagger`.
-  2. Use the `POST /login` endpoint with the credentials above (or register a new normal user via `POST /register`).
-  3. Copy the returned JWT token string (the `token` value).
-  4. Click the green **Authorize** button at the top of Swagger.
-  5. Paste the token directly into the `Value` field (Swagger is configured to append the 'Bearer ' prefix automatically) and click Authorize.
-  6. You can now access protected endpoints. Normal users can only `GET` events, while Admins can `POST`, `PUT`, and `DELETE` events.
+  1. Open Swagger at `http://localhost:8080/swagger`[cite: 2].
+  2. Use the `POST /login` endpoint with the credentials above (or register a new normal user via `POST /register`)[cite: 2].
+  3. Copy the returned JWT token string (the `token` value)[cite: 2].
+  4. Click the green **Authorize** button at the top of Swagger[cite: 2].
+  5. Paste the token directly into the `Value` field (Swagger is configured to append the 'Bearer ' prefix automatically) and click Authorize[cite: 2].
+  6. You can now access protected endpoints[cite: 2]. Normal users can only `GET` events, while Admins can `POST`, `PUT`, and `DELETE` events[cite: 2].
 
 ## Architecture decisions
-* **Type of Id property:** I used `int` instead of the more complex `Guid` for the `Id` of `Event`. This simplifies testing, improves database index performance, and is perfectly sufficient for a basic CRUD API.
-* **Service Layer Pattern:** While using Minimal APIs for HTTP routing, I introduced an `IEventService` layer to encapsulate database operations. This adheres to the Separation of Concerns (SoC) principle, keeps the endpoints clean, and makes the business logic easily unit-testable without mocking HTTP contexts.
-* **Data Transfer Objects (DTOs):** Incoming request payloads are separated from database entities using `InputEventDto` to prevent over-posting vulnerabilities.
-* **Validation & Error Handling:** The API uses `FluentValidation` to strictly validate incoming requests. Any unexpected server errors are caught by a modern `IExceptionHandler` and returned as standard `application/problem+json` Problem Details responses, ensuring no sensitive stack traces are leaked.
-* **Structured Logging:** Key business operations and potential validation failures are logged with structured properties (e.g., `{EventId}`) for easier monitoring and debugging.
-* **Database Indexing:** To ensure database performance scales with a growing number of events, I configured two non-clustered indexes using EF Core Fluent API:
-  1. **Index on `StartsAt`**: This is critical because the API heavily relies on date-range filtering (`dateFrom`, `dateTo`) and default chronological sorting. B-Tree indexes significantly optimize these operations.
-  2. **Index on `Name`**: While standard indexes don't fully optimize `LIKE '%text%'` wildcard searches (generated by `.Contains()`), this index was added primarily to optimize the alphabetical sorting (`sortBy=name`) feature, preventing expensive in-memory sorts on large datasets.
-* **Security & Auth:** Passwords are never stored in plain text; they are hashed with a unique salt using **BCrypt**. Authentication is implemented statelessly via **JWT**, and authorization relies on ASP.NET Core Policies (`RequireAuthorization("AdminOnly")`) to enforce role-based access control.
+* **Type of Id property:** I used `int` instead of the more complex `Guid` for the `Id` of `Event`[cite: 2]. This simplifies testing, improves database index performance, and is perfectly sufficient for a basic CRUD API[cite: 2].
+* **Service Layer Pattern:** While using Minimal APIs for HTTP routing, I introduced an `IEventService` layer to encapsulate database operations[cite: 2]. This adheres to the Separation of Concerns (SoC) principle, keeps the endpoints clean, and makes the business logic easily unit-testable without mocking HTTP contexts[cite: 2].
+* **Data Transfer Objects (DTOs):** Incoming request payloads are separated from database entities using `InputEventDto` to prevent over-posting vulnerabilities[cite: 2].
+* **Validation & Error Handling:** The API uses `FluentValidation` to strictly validate incoming requests[cite: 2]. Any unexpected server errors are caught by a modern `IExceptionHandler` and returned as standard `application/problem+json` Problem Details responses, ensuring no sensitive stack traces are leaked[cite: 2].
+* **Structured Logging:** Key business operations and potential validation failures are logged with structured properties (e.g., `{EventId}`) for easier monitoring and debugging[cite: 2].
+* **Database Indexing:** To ensure database performance scales with a growing number of events, I configured two non-clustered indexes using EF Core Fluent API[cite: 2]:
+  1. **Index on `StartsAt`**: This is critical because the API heavily relies on date-range filtering (`dateFrom`, `dateTo`) and default chronological sorting[cite: 2]. B-Tree indexes significantly optimize these operations[cite: 2].
+  2. **Index on `Name`**: While standard indexes don't fully optimize `LIKE '%text%'` wildcard searches (generated by `.Contains()`), this index was added primarily to optimize the alphabetical sorting (`sortBy=name`) feature, preventing expensive in-memory sorts on large datasets[cite: 2].
+* **Security & Auth:** Passwords are never stored in plain text; they are hashed with a unique salt using **BCrypt**[cite: 2]. Authentication is implemented statelessly via **JWT**, and authorization relies on ASP.NET Core Policies (`RequireAuthorization("AdminOnly")`) to enforce role-based access control[cite: 2].
+
+### Challenge 3 Implementation Details
+* **Concurrency Handling (Preventing Overbooking):** To prevent race conditions when two users try to book the last seat simultaneously, I implemented **Optimistic Concurrency** using EF Core (`RowVersion` byte array).
+  * *How it works:* When saving a reservation, EF Core checks if the `RowVersion` of the `Event` has changed since it was read. If it has, a `DbUpdateConcurrencyException` is thrown, which the service catches to prevent overselling.
+  * *Why I chose it:* It avoids heavy pessimistic database locks, keeping read operations fast and preventing database deadlocks. It is ideal for REST APIs.
+  * *Limitations:* In extremely high-contention scenarios (e.g., Taylor Swift ticket sales), many concurrent requests will fail and require client-side retry logic.
+* **Reservation Expiration (Surviving Restarts):** Pending reservations expire automatically after a short timeframe (e.g., 30 seconds) if not confirmed.
+  * *How it works:* I implemented a .NET `BackgroundService` (Hosted Service) that polls the database every 10 seconds. It finds `Pending` reservations past their `ExpiresAt` time, marks them as `Expired`, and atomically returns the seats to the event's `AvailableSeats` pool.
+  * *Why I chose it:* The database remains the single source of truth. If the Docker container crashes or restarts, the background service will simply pick up where it left off on the next startup. No reservations will be left in a "zombie" state. It requires no external infrastructure (like Redis).
+  * *Limitations:* Frequent database polling adds overhead. For a massive enterprise system with millions of reservations, I would replace this with a message broker utilizing delayed queues (e.g., RabbitMQ or Azure Service Bus Scheduled Messages).
 
 ## Future improvements 
-* **Ticketing & Reservations (Challenge 3):** Implement concurrent-safe event booking logic, track available capacity, and prevent overbooking using database transactions or optimistic concurrency.
-* **Route Organization:** Use `MapGroup` to prevent code duplication in endpoint paths and to better organize the API structure.
-* **Time Types:** Replace `DateTime` with `DateTimeOffset` in the `Event` model to correctly store event times with timezone awareness.
+* **Route Organization:** Use `MapGroup` to prevent code duplication in endpoint paths and to better organize the API structure[cite: 2].
+* **Time Types:** Replace `DateTime` with `DateTimeOffset` in the `Event` model to correctly store event times with timezone awareness[cite: 2].
+* **Message Broker:** Replace the polling `BackgroundService` with a distributed message queue (e.g., RabbitMQ) for more scalable reservation expiration handling in a multi-instance microservice environment.

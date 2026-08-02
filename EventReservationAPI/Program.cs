@@ -10,6 +10,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using System.Runtime.CompilerServices;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,8 @@ builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
+builder.Services.AddHostedService<ReservationCleanupService>();
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
 builder.Services.AddSwaggerGen(c =>
@@ -123,18 +128,88 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"[SEEDING] Successfully created admin user: {adminEmail}");
     }
 
+    //if (dbContext.Events.Any())
+    //{
+    //    dbContext.Events.RemoveRange(dbContext.Events);
+    //    dbContext.SaveChanges();
+    //}
+
     if (!dbContext.Events.Any())
     {
         var events = new List<Event>
         {
-           new Event { Name = ".NET Conf 2026", Description = "Biggest conference for .NET developers", Location = "Kyiv", StartsAt = DateTime.UtcNow.AddDays(10), Capacity = 500, CreatedAt = DateTime.UtcNow },
-            new Event { Name = "Rock Festival", Description = "Rock music festival", Location = "Lviv", StartsAt = DateTime.UtcNow.AddMonths(2), Capacity = 2000, CreatedAt = DateTime.UtcNow },
-            new Event { Name = "Local Art Exhibit", Description = "Exhibition of contemporary art (already passed)", Location = "Odesa", StartsAt = DateTime.UtcNow.AddDays(-5), Capacity = 50, CreatedAt = DateTime.UtcNow.AddDays(-20) },
-            new Event { Name = "Kyiv Marathon", Description = "Charity running marathon", Location = "Kyiv", StartsAt = DateTime.UtcNow.AddDays(20), Capacity = 1000, CreatedAt = DateTime.UtcNow },
-            new Event { Name = "Startup Pitch Meetup", Description = "Presentation of ideas to investors", Location = "Kharkiv", StartsAt = DateTime.UtcNow.AddDays(2), Capacity = 100, CreatedAt = DateTime.UtcNow },
-            new Event { Name = "Jazz Night", Description = "Evening of live jazz music", Location = "Lviv", StartsAt = DateTime.UtcNow.AddDays(15), Capacity = 150, CreatedAt = DateTime.UtcNow },
-            new Event { Name = "C# Masterclass", Description = "Intensive on architecture and patterns", Location = "Online", StartsAt = DateTime.UtcNow.AddDays(5), Capacity = 300, CreatedAt = DateTime.UtcNow },
-            new Event { Name = "Food Tasting Fair", Description = "Festival of street food", Location = "Kyiv", StartsAt = DateTime.UtcNow.AddDays(8), Capacity = 400, CreatedAt = DateTime.UtcNow }
+           new Event { 
+               Name = ".NET Conf 2026", 
+               Description = "Biggest conference for .NET developers", 
+               Location = "Kyiv", 
+               StartsAt = DateTime.UtcNow.AddDays(10), 
+               Capacity = 500, 
+               CreatedAt = DateTime.UtcNow, 
+               AvailableSeats = 500 
+           },
+            new Event { 
+                Name = "Rock Festival", 
+                Description = "Rock music festival", 
+                Location = "Lviv", 
+                StartsAt = DateTime.UtcNow.AddMonths(2), 
+                Capacity = 2000, 
+                CreatedAt = DateTime.UtcNow, 
+                AvailableSeats = 2000 
+            },
+            new Event { 
+                Name = "Local Art Exhibit", 
+                Description = "Exhibition of contemporary art (already passed)", 
+                Location = "Odesa", 
+                StartsAt = DateTime.UtcNow.AddDays(-5), 
+                Capacity = 50, 
+                CreatedAt = DateTime.UtcNow.AddDays(-20), 
+                AvailableSeats = 0 
+            },
+            new Event { 
+                Name = "Kyiv Marathon", 
+                Description = "Charity running marathon", 
+                Location = "Kyiv", 
+                StartsAt = DateTime.UtcNow.AddDays(20), 
+                Capacity = 1000, 
+                CreatedAt = DateTime.UtcNow, 
+                AvailableSeats = 1000 
+            },
+            new Event { 
+                Name = "Startup Pitch Meetup", 
+                Description = "Presentation of ideas to investors", 
+                Location = "Kharkiv", 
+                StartsAt = DateTime.UtcNow.AddDays(2), 
+                Capacity = 100, 
+                CreatedAt = DateTime.UtcNow, 
+                AvailableSeats = 100 
+            },
+            new Event { 
+                Name = "Jazz Night", 
+                Description = "Evening of live jazz music", 
+                Location = "Lviv", 
+                StartsAt = DateTime.UtcNow.AddDays(15), 
+                Capacity = 150, 
+                CreatedAt = DateTime.UtcNow, 
+                AvailableSeats = 150 
+            },
+            new Event { 
+                Name = "C# Masterclass", 
+                Description = "Intensive on architecture and patterns", 
+                Location = "Online", 
+                StartsAt = DateTime.UtcNow.AddDays(5), 
+                Capacity = 300, 
+                CreatedAt = DateTime.UtcNow, 
+                AvailableSeats = 300 
+            },
+            new Event { 
+                Name = "Food Tasting Fair", 
+                Description = "Festival of street food", 
+                Location = "Kyiv", 
+                StartsAt = DateTime.UtcNow.AddDays(8), 
+                Capacity = 400, 
+                CreatedAt = DateTime.UtcNow, 
+                AvailableSeats = 400 
+            }
         };
 
         dbContext.Events.AddRange(events);
@@ -258,5 +333,70 @@ app.MapPost("/login", async (
 
         return Results.Ok(new { Token = token });
     });
+
+app.MapPost("/reservations", async (
+    ReservationCreateDto dto,
+    IValidator<ReservationCreateDto> validator,
+    IReservationService reservationService, 
+    ClaimsPrincipal user) =>
+    {
+        var validationResult = await validator.ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+        {
+            return Results.ValidationProblem(validationResult.ToDictionary());
+        }
+
+        var userIdString = user.FindFirst(ClaimTypes.NameIdentifier)?.Value
+                        ?? user.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+
+        if(string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
+        {
+            return Results.Unauthorized();
+        }
+
+        var reservation = await reservationService.CreateReservationAsync(userId, dto);
+
+        return Results.Created($"/reservations/{reservation.Id}", reservation);
+    })
+    .RequireAuthorization();
+
+app.MapPost("/reservations/{id}/confirm", async (
+    int id,
+    IReservationService reservationService,
+    ClaimsPrincipal user) =>
+{
+    var userIdString = user.FindFirst(ClaimTypes.NameIdentifier)?.Value
+                    ?? user.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+
+    if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
+    {
+        return Results.Unauthorized();
+    }
+
+    var reservation = await reservationService.ConfirmReservationAsync(userId, id);
+
+    return Results.Ok(reservation);
+})
+.RequireAuthorization();
+
+app.MapPost("/reservations/{id}/cancel", async (
+    int id,
+    IReservationService reservationService,
+    ClaimsPrincipal user) =>
+{
+    var userIdString = user.FindFirst(ClaimTypes.NameIdentifier)?.Value
+                    ?? user.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+
+    if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
+    {
+        return Results.Unauthorized();
+    }
+
+    var reservation = await reservationService.CancelReservationAsync(userId, id);
+
+    return Results.Ok(reservation);
+})
+.RequireAuthorization();
 
 app.Run();
